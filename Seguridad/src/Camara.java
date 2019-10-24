@@ -3,7 +3,7 @@ import java.lang.Math;
 
 public class Camara {
 	
-	final String DIRECCIONES[] = {"izquierda", "centro", "derecha"};
+	final String DIRECCIONES[] = {"la izquierda", "el centro", "la derecha"};
 	int posicion[]= new int[2];
 	ArrayList<Integer> ids = new ArrayList<Integer>();
 	int direccion;
@@ -42,5 +42,13 @@ public class Camara {
 	
 	private void rotarDerecha() {
 		this.direccion = ++this.direccion%3;
+	}
+	
+	private void agregarPersonas(int id) {
+		this.ids.add(id);
+	}
+	
+	private void removerPersona(int id) {
+		this.ids.remove(id);
 	}
 }
