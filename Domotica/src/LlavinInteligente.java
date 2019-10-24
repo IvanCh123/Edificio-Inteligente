@@ -1,17 +1,14 @@
 
-public class LlavinInteligente {
+public class LlavinInteligente extends Actuador{
 	
-	boolean estado; 
-	
-	public void abrir() {
-		this.estado = true; 
+	protected Actuador crearActuador() 
+	{
+		return new LlavinInteligente();
 	}
 	
-	public void cerrar() {
-		this.estado = false; 
+	public LlavinInteligente() 
+	{
+		this.tipoActuador = "LlavinInteligente";
 	}
 	
-	public boolean getEstado() {
-		return this.estado;
-	}
 }

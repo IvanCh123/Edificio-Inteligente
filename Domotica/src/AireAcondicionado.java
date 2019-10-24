@@ -1,21 +1,18 @@
 
-public class AireAcondicionado {
+public class AireAcondicionado extends Actuador{
 	
 	int potencia;
-	boolean estado;
 	
-	public AireAcondicionado(int potencia)
+	protected Actuador crearActuador() 
 	{
-		this.potencia = potencia; 
+		return new AireAcondicionado();
 	}
 	
-	public void encender(){
-		this.estado = true; 
+	public AireAcondicionado()
+	{
+		this.tipoActuador = "Aire acondicionado";
 	}
 	
-	public void apagar() {
-		this.estado = false; 
-	}
 	
 	public void setPotencia(int potencia) {
 		this.potencia = potencia; 
@@ -25,9 +22,5 @@ public class AireAcondicionado {
 		return this.potencia; 
 	}
 	
-	public boolean getEstado() {
-		return this.estado;
-	}
-	
-	
+
 }

@@ -1,30 +1,29 @@
 
-public class Bombillo {
+public class Bombillo extends Actuador{
 	
-	boolean estado; 
 	String color;
 	
-	public Bombillo(String color) {
-		this.color = color; 
+	protected Actuador crearActuador() 
+	{
+		return new Bombillo();
 	}
 	
-	public void encender(){
-		this.estado = true; 
+	public Bombillo() 
+	{
+		this.tipoActuador = "Bombillo";
 	}
 	
-	public void apagar() {
-		this.estado = false; 
-	}
 	
 	public void cambiarColor(String color){
 		this.color = color; 
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 	public String getColor() {
 		return this.color; 
 	}
 	
-	public boolean getEstado() {
-		return this.estado;
-	}
 }

@@ -1,22 +1,25 @@
 
-public class Sensor {
+public abstract class Sensor {
 
-	String posicion; 
-	String tipo;
-	int estado;
+	protected String posicion; 
+	protected String tipoSensor;
+	protected boolean estado;
 	
-	public Sensor(String posicion, String tipo, int estado){
-		this.posicion = posicion;
-		this.tipo = tipo;
-		this.estado = estado;
-	}
-		
-	public int getEstado() {
+	
+	public boolean getEstado() {
 		return this.estado;
 	}
 	
 	public String getInfo(){
-		return "";
+		return "Posicion: "+this.posicion+"Tipo: "+this.tipoSensor+"Estado: "+Boolean.toString(this.estado)+"\n";
+	}
+	
+	public void setPosicion(String posicion) {
+		this.posicion = posicion;
+	}
+	
+	public void setTipo(String tipo) {
+		this.tipoSensor = tipo;
 	}
 	
 }
