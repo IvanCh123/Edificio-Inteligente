@@ -1,0 +1,30 @@
+
+public class SistemaSeguridad {
+	
+	private static SistemaSeguridad sistema;
+	private CamarasComposite sistemaCamaras;
+	
+	private SistemaSeguridad() {
+		sistemaCamaras = new CamarasComposite();
+	}
+	
+	public static SistemaSeguridad getInstancia() {
+		if(SistemaSeguridad.sistema == null) {
+			SistemaSeguridad.sistema = new SistemaSeguridad();
+		}
+		return SistemaSeguridad.sistema;
+	}
+	
+	public void agregarCamara(Camara camara) {
+		this.sistemaCamaras.agregar(camara);
+	}
+	
+	public void agregarConjuntoCamaras(Camara[] camaras) {
+		CamarasComposite nuevoConjunto = new CamarasComposite();
+		for(int i = 0; i < camaras.length; ++i) {
+			nuevoConjunto.agregar(camaras[i]);
+		}
+		sistemaCamaras.agregar(nuevoConjunto);
+	}
+
+}
