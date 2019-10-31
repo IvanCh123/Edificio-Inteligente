@@ -15,6 +15,13 @@ public class Mediator {
 		this.actuadores.addAll(actuadores);
 	}
 	
+	public void addBehaviorMethod(/*Sensor.Method, Actuador.Method*/){	
+		
+	}
+	
+	public void addBehaviorParameter(/*Sensor.Param, Actuador.Method*/) {
+		
+	}
 	
 	
 }
