@@ -26,5 +26,10 @@ public class SistemaSeguridad {
 		}
 		sistemaCamaras.agregar(nuevoConjunto);
 	}
+	
+	public Camara buscarInquilino(int id) {
+		Camara camara = sistemaCamaras.buscarVisualizado(id);
+		return camara;
+	}
 
 }

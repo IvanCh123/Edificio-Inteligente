@@ -6,7 +6,9 @@ public interface Camara {
 	
 	void agregarVisualizado(int id);
 	void eliminarVisualizado(int id);
+	Camara buscarVisualizado(int id);
 	void rotarIzquierda();
 	void rotarDerecha();
+	String getEstado();
 	
 }

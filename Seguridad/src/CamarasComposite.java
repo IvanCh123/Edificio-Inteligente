@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class CamarasComposite implements Camara {
 	
 	ArrayList<Camara> camaras;
+	int id;
 	
 	public CamarasComposite() {
 		this.camaras = new ArrayList<Camara>();
@@ -34,6 +35,25 @@ public class CamarasComposite implements Camara {
 		for(int i = 0; i < camaras.size(); ++i) {
 			camaras.get(i).rotarDerecha();
 		}
+	}
+	
+	@Override
+	public String getEstado() {
+		String estado = "";
+		for(int i = 0; i < camaras.size(); ++i) {
+			estado = estado.concat(camaras.get(i).getEstado());
+			estado = estado.concat("\n");
+		}
+		return estado;
+	}
+	
+	@Override
+	public Camara buscarVisualizado(int id) {
+		Camara camara = null;
+		for(int i = 0; i < camaras.size() && camara == null; ++i) {
+			camara = camaras.get(i).buscarVisualizado(id);
+		}
+		return camara;
 	}
 	
 	public void agregar(Camara camara) {

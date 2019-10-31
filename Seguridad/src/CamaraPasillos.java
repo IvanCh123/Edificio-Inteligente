@@ -31,8 +31,18 @@ public class CamaraPasillos implements Camara {
 		this.direccion = (this.direccion++)%(DIRECCIONES.length);
 	}
 	
+	@Override
 	public String getEstado() {
-		return "\tTorre: " + ubicacion[0] + "\n\tPiso: " + ubicacion[1] + "\n\tDireccion: " + this.DIRECCIONES[this.direccion];
+		return "Camara:\n\tTorre: " + ubicacion[0] + "\n\tPiso: " + ubicacion[1] + "\n\tDireccion: " + this.DIRECCIONES[this.direccion];
+	}
+	
+	@Override
+	public Camara buscarVisualizado(int id) {
+		for(int i = 0; i < visualizados.size(); ++i) {
+			if(visualizados.get(i) == id)
+				return this;
+		}
+		return null;
 	}
 
 	public void setTorre(int torre) {
