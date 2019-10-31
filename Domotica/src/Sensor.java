@@ -28,4 +28,8 @@ public abstract class Sensor {
 		this.tipoSensor = tipo;
 	}
 	
+	public void ejecutar(String commandNombre){
+		 mediator.ejecutarComportamiento(commandNombre);
+	}
+	
 }

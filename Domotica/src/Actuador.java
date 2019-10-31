@@ -10,7 +10,9 @@ public abstract class Actuador {
 	}
 	
 	public void encender(){
-		estado = true; 
+		estado = true;
+		
+		ejecutar(this.tipoActuador);
 	}
 	
 	public void apagar() {
