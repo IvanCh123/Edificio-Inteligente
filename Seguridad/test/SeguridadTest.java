@@ -1,10 +1,11 @@
 import static junit.Assert.assertEquals;
-import junit.Test
+import junit.Test;
 
 public class SeguridadTest{
+	
 	@Test
 	public void buscarInquilinoTest(){
-		inquilinoId = 1;
+		int inquilinoId = 1;
 		SistemaSeguridad centroMando = SistemaSeguridad.getInstancia();
 		Camara camara = new CamaraPasillos();
 		centroMando.agregarCamara(camara);

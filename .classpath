@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Domotica/src"/>
+	<classpathentry kind="src" path="Seguridad/src"/>
+	<classpathentry kind="src" path="Seguridad/test"/>
+	<classpathentry kind="output" path="Domotica/bin"/>
+</classpath>
