@@ -21,5 +21,9 @@ public abstract class Actuador {
 		return this.estado;
 	}
 	
+	public void ejecutar(String commandNombre){
+		 mediator.ejecutarComportamiento(commandNombre);
+	}
+	
 	protected abstract Actuador crearActuador();
 }
