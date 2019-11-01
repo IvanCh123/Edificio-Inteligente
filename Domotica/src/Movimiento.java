@@ -1,5 +1,6 @@
 
 public class Movimiento extends Sensor{
+	
 	boolean movimiento;
 	
 	protected Sensor crearSensor() 

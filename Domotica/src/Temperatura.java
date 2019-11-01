@@ -14,6 +14,7 @@ public class Temperatura extends Sensor{
 	
 	public void setTemperatura(float temperatura) {
 		this.temperatura = temperatura;
+		
 	}
 	
 	public float getTemperatura() {

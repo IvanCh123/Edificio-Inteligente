@@ -10,20 +10,20 @@ public abstract class Actuador {
 	}
 	
 	public void encender(){
-		estado = true;
-		
-		ejecutar(this.tipoActuador);
+		estado = true;	
+		notify(this.tipoActuador);
 	}
 	
 	public void apagar() {
 		estado = false; 
+		notify(this.tipoActuador);
 	}
 	
 	public boolean getEstado() {
 		return this.estado;
 	}
 	
-	public void ejecutar(String commandNombre){
+	public void notify(String commandNombre){
 		 mediator.ejecutarComportamiento(commandNombre);
 	}
 	

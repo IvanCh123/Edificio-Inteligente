@@ -14,7 +14,7 @@ Para el sistema de domotica tiene un mediator que se conecta con los sensores y 
 El sensor tiene que avisar de alguna manera que algo cambió y así ver la condición y hacer el actuador
 Ej: temperatura = 31; 
 
-Para esto se puede hacer mediante un Observer:
+Para esto se puede hacer mediante el Mediador:
 El sensor cambia, mediador se da cuenta y le dice a los que estan asociados al sensor cambien automáticamente.
 
 
@@ -33,6 +33,8 @@ Posible test:
 new Mediator
 new Sensores {}
 new Actudaores {}
+
+
 
 mediator.addB( temp > 30, apagaRadio())
 sensores[temp] = 31

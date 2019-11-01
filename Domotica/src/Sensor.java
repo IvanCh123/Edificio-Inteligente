@@ -16,6 +16,11 @@ public abstract class Sensor {
 		return this.estado;
 	}
 	
+	public void setEstado(boolean estado)
+	{
+		this.estado = estado; 
+	}
+	
 	public String getInfo(){
 		return "Posicion: "+this.posicion+"Tipo: "+this.tipoSensor+"Estado: "+Boolean.toString(this.estado)+"\n";
 	}
@@ -28,7 +33,7 @@ public abstract class Sensor {
 		this.tipoSensor = tipo;
 	}
 	
-	public void ejecutar(String commandNombre){
+	public void notify(String commandNombre){
 		 mediator.ejecutarComportamiento(commandNombre);
 	}
 	
