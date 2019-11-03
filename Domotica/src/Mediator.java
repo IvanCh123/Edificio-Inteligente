@@ -8,7 +8,7 @@ public class Mediator {
 	private List<Sensor> sensores; 
 	private List<Actuador> actuadores; 
 	
-	private HashMap<String, List<TramientoComportamiento>> comportamientos;
+	private HashMap<String, List<TratamientoComportamiento>> comportamientos;
 	
 	
 	public Mediator()
@@ -26,11 +26,11 @@ public class Mediator {
 		this.actuadores.addAll(actuadores);
 	}
 	
-	public void addComportamiento(String commandNombre, TramientoComportamiento command ){
+	public void addComportamiento(String commandNombre, TratamientoComportamiento command ){
 		
 		if ( comportamientos.get(commandNombre) == null)
 		{
-			comportamientos.put(commandNombre, new ArrayList<TramientoComportamiento>()); 
+			comportamientos.put(commandNombre, new ArrayList<TratamientoComportamiento>()); 
 		}
 		
 		comportamientos.get(commandNombre).add(command); 
