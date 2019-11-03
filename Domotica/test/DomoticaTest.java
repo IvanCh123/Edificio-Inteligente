@@ -30,6 +30,8 @@ public class DomoticaTest{
 		
 		movimiento.setEstado(true); 
 		
+		System.out.println(movimiento.getEstado());
+		System.out.println(bombillo.getEstado());
 		assertEquals(bombillo.getEstado(), true);
 		
 	}

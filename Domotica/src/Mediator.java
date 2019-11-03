@@ -13,7 +13,9 @@ public class Mediator {
 	
 	public Mediator()
 	{
-		
+		sensores = new ArrayList<Sensor>(); 
+		actuadores = new ArrayList<Actuador>();
+		comportamientos = new HashMap<String,  List<TratamientoComportamiento>>();
 	}
 	
 	public void setSensores(List<Sensor> sensores)
@@ -28,19 +30,22 @@ public class Mediator {
 	
 	public void addComportamiento(String commandNombre, TratamientoComportamiento command ){
 		
+
 		if ( comportamientos.get(commandNombre) == null)
 		{
-			comportamientos.put(commandNombre, new ArrayList<TratamientoComportamiento>()); 
+			comportamientos.put(commandNombre, new ArrayList<TratamientoComportamiento>());
+			
 		}
+		comportamientos.get(commandNombre).add(command);
 		
-		comportamientos.get(commandNombre).add(command); 
 	}
 	
 	
 	public void ejecutarComportamiento(String commandNombre){
 		
 		for(int index = 0; index < comportamientos.get(commandNombre).size(); ++index){
-			comportamientos.get(commandNombre).get(index).ejecutar();
+			comportamientos.get(commandNombre).get(index).ejecutar();		
+			System.out.println(comportamientos.get(commandNombre).get(index).toString());
 		}
 	}
 }

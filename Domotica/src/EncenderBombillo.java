@@ -11,8 +11,12 @@ public class EncenderBombillo implements TratamientoComportamiento {
 	@Override
 	public void ejecutar() {
 		bombillo.encender();
-		// TODO Auto-generated method stub
 
 	}
-
+	
+	@Override
+	public String toString()
+	{
+		return "EncenderBombillo";
+	}
 }

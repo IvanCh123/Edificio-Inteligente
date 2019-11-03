@@ -10,13 +10,13 @@ public abstract class Actuador {
 	}
 	
 	public void encender(){
-		estado = true;	
-		notify(this.tipoActuador);
+		this.estado = true;	
+		//notify(this.tipoActuador);
 	}
 	
 	public void apagar() {
 		estado = false; 
-		notify(this.tipoActuador);
+		//notify(this.tipoActuador);
 	}
 	
 	public boolean getEstado() {
