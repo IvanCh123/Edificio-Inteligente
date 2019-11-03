@@ -43,9 +43,11 @@ public class Mediator {
 	
 	public void ejecutarComportamiento(String commandNombre){
 		
-		for(int index = 0; index < comportamientos.get(commandNombre).size(); ++index){
-			comportamientos.get(commandNombre).get(index).ejecutar();		
-			System.out.println(comportamientos.get(commandNombre).get(index).toString());
+		if(comportamientos.get(commandNombre) != null) {
+		
+			for(int index = 0; index < comportamientos.get(commandNombre).size(); ++index){
+				comportamientos.get(commandNombre).get(index).ejecutar();		
+			}
 		}
 	}
 }

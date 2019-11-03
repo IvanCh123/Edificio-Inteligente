@@ -1,5 +1,6 @@
 
 public abstract class SensoresFactory {
+	
 	public Sensor crear()
 	{
 		Sensor sensor = crearSensor();

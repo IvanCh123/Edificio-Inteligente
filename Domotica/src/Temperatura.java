@@ -1,5 +1,6 @@
 
 public class Temperatura extends Sensor{
+	
 	float temperatura;
 	
 	protected Sensor crearSensor() 

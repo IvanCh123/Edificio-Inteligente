@@ -11,12 +11,12 @@ public abstract class Actuador {
 	
 	public void encender(){
 		this.estado = true;	
-		//notify(this.tipoActuador);
+		notify(this.tipoActuador + " encender");
 	}
 	
 	public void apagar() {
 		estado = false; 
-		//notify(this.tipoActuador);
+		notify(this.tipoActuador + " apagar");
 	}
 	
 	public boolean getEstado() {

@@ -19,20 +19,27 @@ public class DomoticaTest{
 		List<Sensor> sensores = new ArrayList<Sensor>(); 
 		List<Actuador> actuadores = new ArrayList<Actuador>(); 
 		
-		
 		sensores.add(movimiento); 
 		actuadores.add(bombillo); 
 		
 		mediator.setActuadores(actuadores);
 		mediator.setSensores(sensores);
 		
-		mediator.addComportamiento("Movimiento", new EncenderBombillo(bombillo));
+		mediator.addComportamiento("Hay Movimiento", new EncenderBombillo(bombillo));
 		
 		movimiento.setEstado(true); 
-		
-		System.out.println(movimiento.getEstado());
-		System.out.println(bombillo.getEstado());
 		assertEquals(bombillo.getEstado(), true);
+	}
+	
+	@Test 
+	public void enciendeBombilloApagarRadioTest()
+	{
+		
+	}
+	
+	@Test
+	public void temp31EncenderAC()
+	{
 		
 	}
 }

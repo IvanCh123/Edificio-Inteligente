@@ -1,7 +1,6 @@
 
 public abstract class Sensor {
-
-	protected String posicion; 
+ 
 	protected String tipoSensor;
 	protected boolean estado;
 	
@@ -19,15 +18,11 @@ public abstract class Sensor {
 	public void setEstado(boolean estado)
 	{
 		this.estado = estado;
-		this.notify(this.tipoSensor);
+		this.notify("Hay " + this.tipoSensor);
 	}
 	
-	public String getInfo(){
-		return "Posicion: "+this.posicion+"Tipo: "+this.tipoSensor+"Estado: "+Boolean.toString(this.estado)+"\n";
-	}
-	
-	public void setPosicion(String posicion) {
-		this.posicion = posicion;
+	public String toString(){
+		return "Tipo: " + this.tipoSensor + "Estado: " + Boolean.toString(this.estado) + "\n";
 	}
 	
 	public void setTipo(String tipo) {
