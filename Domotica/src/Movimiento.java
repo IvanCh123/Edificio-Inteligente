@@ -15,6 +15,7 @@ public class Movimiento extends Sensor{
 	
 	public void setMovimiento(boolean movimiento) {
 		this.movimiento = movimiento;
+		this.notify(this.tipoSensor);
 	}
 	
 	public boolean getMovimiento() {

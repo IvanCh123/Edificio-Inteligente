@@ -1,21 +1,36 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DomoticaTest{
 	
 	@Test
-	public void buscarInquilinoTest(){
-		int inquilinoId = 1;
-		SistemaSeguridad centroMando = SistemaSeguridad.getInstancia();
-		Camara camara = new CamaraPasillos();
-		centroMando.agregarCamara(camara);
-		camara.setTorre(1);
-		camara.setPiso(3);
-		camara.setDireccion(1);
-		camara.agregarVisualizado(inquilinoId);
-		Camara camaraTest = centroMando.buscarInquilino(inquilinoId);
-		String resultado = camaraTest.getEstado();
-		String respuesta = camara.getEstado();
-		assertEquals(resultado, respuesta);
+	public void hayMovimientoEncenderBombilloTest(){
+	
+		Mediator mediator = new Mediator(); 
+		
+		Sensor movimiento = new Movimiento(); 
+		Actuador bombillo = new Bombillo(); 
+		movimiento.setMediator(mediator);
+		bombillo.setMediator(mediator);
+		
+		List<Sensor> sensores = new ArrayList<Sensor>(); 
+		List<Actuador> actuadores = new ArrayList<Actuador>(); 
+		
+		
+		sensores.add(movimiento); 
+		actuadores.add(bombillo); 
+		
+		mediator.setActuadores(actuadores);
+		mediator.setSensores(sensores);
+		
+		mediator.addComportamiento("Movimiento", new EncenderBombillo(bombillo));
+		
+		movimiento.setEstado(true); 
+		
+		assertEquals(bombillo.getEstado(), true);
+		
 	}
 }
