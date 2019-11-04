@@ -1,9 +1,3 @@
-/ActividadListener.class
-/ActividadManager.class
-/Camara.class
-/CamaraPasillos.class
-/CamarasComposite.class
-/Logger.class
-/SeguridadTest.class
-/SistemaSeguridad.class
-/ProxyLibreria.class
+/ProxyServicio.class
+/ProxyImplementation.class
+/InternetManager.class

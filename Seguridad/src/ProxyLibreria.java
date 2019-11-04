@@ -1,5 +1,7 @@
-
+import java.util.ArrayList;
+import java.util.HashMap;
 public interface ProxyLibreria {
-	public void sitiosPermitidos();
+	public HashMap<Integer,ArrayList<String>> conectados();
+	public ArrayList<String> sitioRestringidos();
 	public void acceder(int sitioId);
 }
