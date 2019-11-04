@@ -50,7 +50,7 @@ public class CamaraPasillos implements Camara {
 		System.out.println(posiciones.length);
 		this.ubicacion[0] = posiciones [0];
 		this.ubicacion[1] = posiciones [1];
-		this.direccion = posiciones [2];
+		this.direccion = (posiciones [2])%3;
 	}
 
 }

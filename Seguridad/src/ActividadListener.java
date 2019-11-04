@@ -4,6 +4,6 @@ public interface ActividadListener{
 	
 	ArrayList<String> logs = new ArrayList<String>();
 
-	void update(String evento, int id);
+	void update(String tipo, int id);  // El evento acá es entrada o salida
 	
 }

@@ -3,6 +3,7 @@ public class SistemaSeguridad {
 	
 	private static SistemaSeguridad sistema;
 	private CamarasComposite sistemaCamaras;
+	private ActividadManager manager;
 	
 	private SistemaSeguridad() {
 		sistemaCamaras = new CamarasComposite();
@@ -30,6 +31,14 @@ public class SistemaSeguridad {
 	public Camara buscarInquilino(int id) {
 		Camara camara = sistemaCamaras.buscarVisualizado(id);
 		return camara;
+	}
+	
+	public void registrarEntrada(int id) {
+		this.manager.notificar("Acceso", "Entrada", id);
+	}
+	
+	public void registrarSalida(int id) {
+		this.manager.notificar("Acceso", "Salida", id);
 	}
 
 }

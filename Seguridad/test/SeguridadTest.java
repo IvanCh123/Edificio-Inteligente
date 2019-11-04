@@ -15,7 +15,7 @@ public class SeguridadTest{
 		this.camara = new CamaraPasillos(1);
 		this.centroMando.agregarCamara(camara);
 		this.inquilinoId = 1;
-		camara.setEstado(new int[] {1,3,2});
+		camara.setEstado(new int[] {1,3,2}); // Torre 1, Piso 3, Direccion derecha
 		camara.agregarVisualizado(inquilinoId);
 	}
 	
