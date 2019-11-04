@@ -10,5 +10,6 @@ public interface Camara {
 	void rotarIzquierda();
 	void rotarDerecha();
 	String getEstado();
+	void setEstado(int posiciones[]);
 	
 }

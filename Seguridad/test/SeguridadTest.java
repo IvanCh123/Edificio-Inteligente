@@ -8,14 +8,14 @@ public class SeguridadTest{
 	SistemaSeguridad centroMando;
 	Camara camara;
 	int inquilinoId;
+	
 	@Before
 	public void inicializarVariables() {
 		this.centroMando = SistemaSeguridad.getInstancia();
 		this.camara = new CamaraPasillos(1);
 		this.centroMando.agregarCamara(camara);
 		this.inquilinoId = 1;
-		//camara.setTorre(1);
-		//camara.setPiso(3);
+		camara.setEstado(new int[] {1,3,2});
 		camara.agregarVisualizado(inquilinoId);
 	}
 	

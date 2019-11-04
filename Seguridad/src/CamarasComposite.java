@@ -56,6 +56,13 @@ public class CamarasComposite implements Camara {
 		return camara;
 	}
 	
+	@Override
+	public void setEstado(int posiciones[]) {
+		for(int i = 0; i < camaras.size(); ++i) {
+			this.camaras.get(i).setEstado(posiciones);
+		}
+	}
+	
 	public void agregar(Camara camara) {
 		this.camaras.add(camara);
 	}

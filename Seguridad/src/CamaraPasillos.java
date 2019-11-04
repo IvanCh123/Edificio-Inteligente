@@ -44,17 +44,13 @@ public class CamaraPasillos implements Camara {
 		}
 		return null;
 	}
-
-	public void setTorre(int torre) {
-		this.ubicacion[0] = torre;
-	}
-
-	public void setPiso(int piso) {
-		this.ubicacion[1] = piso;
-	}
-
-	public void setDireccion(int direccion) {
-		this.direccion = direccion;
+	
+	@Override
+	public void setEstado(int posiciones[]) {
+		System.out.println(posiciones.length);
+		this.ubicacion[0] = posiciones [0];
+		this.ubicacion[1] = posiciones [1];
+		this.direccion = posiciones [2];
 	}
 
 }
