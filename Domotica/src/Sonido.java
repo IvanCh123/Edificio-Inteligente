@@ -9,7 +9,7 @@ public class Sonido extends Sensor{
 	
 	public Sonido()
 	{
-		this.tipoSensor = "Sonido";
+		this.tipoSensor = "Sonido"; 
 	}
 	
 	public void setSonido(boolean sonido) {

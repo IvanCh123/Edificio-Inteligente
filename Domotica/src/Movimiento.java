@@ -5,7 +5,7 @@ public class Movimiento extends Sensor{
 	
 	protected Sensor crearSensor() 
 	{
-		return new Movimiento();
+		return new Movimiento(); 
 	}
 	
 	public Movimiento()
