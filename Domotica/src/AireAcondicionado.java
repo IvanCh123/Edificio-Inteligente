@@ -5,7 +5,7 @@ public class AireAcondicionado extends Actuador{
 	
 	protected Actuador crearActuador() 
 	{
-		return new AireAcondicionado();
+		return new AireAcondicionado(); 
 	}
 	
 	public AireAcondicionado()
