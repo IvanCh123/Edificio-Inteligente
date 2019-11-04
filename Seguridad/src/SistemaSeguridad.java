@@ -7,6 +7,7 @@ public class SistemaSeguridad {
 	
 	private SistemaSeguridad() {
 		sistemaCamaras = new CamarasComposite();
+		manager = new ActividadManager();
 	}
 	
 	public static SistemaSeguridad getInstancia() {
@@ -39,6 +40,10 @@ public class SistemaSeguridad {
 	
 	public void registrarSalida(int id) {
 		this.manager.notificar("Acceso", "Salida", id);
+	}
+	
+	public void agregarAcceso(ActividadListener observer) {
+		this.manager.suscribir("Acceso", observer);
 	}
 
 }

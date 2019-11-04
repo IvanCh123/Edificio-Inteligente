@@ -47,7 +47,6 @@ public class CamaraPasillos implements Camara {
 	
 	@Override
 	public void setEstado(int posiciones[]) {
-		System.out.println(posiciones.length);
 		this.ubicacion[0] = posiciones [0];
 		this.ubicacion[1] = posiciones [1];
 		this.direccion = (posiciones [2])%3;

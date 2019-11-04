@@ -9,9 +9,12 @@ public class Logger implements ActividadListener {
 	
 	@Override
 	public void update(String tipo, int id) {
-		this.log.concat(tipo);
-		this.log.concat(" de inquilino: ".concat(Integer.toString(id)));
-		this.log.concat("\n");
+		this.log += tipo + " de inquilino: " + id + "\n";
+	}
+	
+	@Override
+	public String print() {
+		return this.log;
 	}
 
 }
