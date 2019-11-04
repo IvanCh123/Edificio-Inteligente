@@ -1,18 +1,26 @@
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class SeguridadTest{
+	//Variables para testeo
+	SistemaSeguridad centroMando;
+	Camara camara;
+	int inquilinoId;
+	@Before
+	public void inicializarVariables() {
+		this.centroMando = SistemaSeguridad.getInstancia();
+		this.camara = new CamaraPasillos(1);
+		this.centroMando.agregarCamara(camara);
+		this.inquilinoId = 1;
+		//camara.setTorre(1);
+		//camara.setPiso(3);
+		camara.agregarVisualizado(inquilinoId);
+	}
 	
 	@Test
 	public void buscarInquilinoTest(){
-		int inquilinoId = 1;
-		SistemaSeguridad centroMando = SistemaSeguridad.getInstancia();
-		Camara camara = new CamaraPasillos();
-		centroMando.agregarCamara(camara);
-		camara.setTorre(1);
-		camara.setPiso(3);
-		camara.setDireccion(1);
-		camara.agregarVisualizado(inquilinoId);
 		Camara camaraTest = centroMando.buscarInquilino(inquilinoId);
 		String resultado = camaraTest.getEstado();
 		String respuesta = camara.getEstado();
