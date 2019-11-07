@@ -1,3 +1,2 @@
-/ProxyServicio.class
-/ProxyImplementation.class
-/InternetManager.class
+/InternetInterface.class
+/InternetProxy.class
