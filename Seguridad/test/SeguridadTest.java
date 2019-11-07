@@ -8,7 +8,7 @@ public class SeguridadTest{
 	SistemaSeguridad centroMando;
 	Camara camara;
 	int inquilinoId;
-	
+
 	@Before
 	public void inicializarVariables() {
 		this.centroMando = SistemaSeguridad.getInstancia();
@@ -20,10 +20,28 @@ public class SeguridadTest{
 	}
 	
 	@Test
-	public void buscarInquilinoTest(){
+	public void buscarInquilinoTest() {
 		Camara camaraTest = centroMando.buscarInquilino(inquilinoId);
 		String resultado = camaraTest.getEstado();
 		String respuesta = camara.getEstado();
 		assertEquals(resultado, respuesta);
 	}
+	
+	@Test
+	public void registroAccesosTest() {
+		ActividadListener logger = new Logger();
+		this.centroMando.agregarAcceso(logger);
+		String log = "Entrada de inquilino: 1"
+				+ "\nEntrada de inquilino: 2"
+				+ "\nSalida de inquilino: 2"
+				+ "\nEntrada de inquilino: 2"
+				+ "\nSalida de inquilino: 1\n";
+		centroMando.registrarEntrada(1);
+		centroMando.registrarEntrada(2);
+		centroMando.registrarSalida(2);
+		centroMando.registrarEntrada(2);
+		centroMando.registrarSalida(1);
+		assertEquals(log, logger.print());
+	}
+	
 }
