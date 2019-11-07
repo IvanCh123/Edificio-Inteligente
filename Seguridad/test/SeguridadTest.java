@@ -56,5 +56,11 @@ public class SeguridadTest{
 		String resultado = this.servicio.acceder(0, "robarbancos.com");
 		assertEquals(esperado, resultado);
 	}
+	@Test
+	public void estadoCamarasTest() {
+		String estado = "Camara:\n\tTorre: 1\n\tPiso: 3\n\tDireccion: Derecha";
+		assertEquals(estado, camara.getEstado());
+
+	}
 	
 }
