@@ -44,4 +44,10 @@ public class SeguridadTest{
 		assertEquals(log, logger.print());
 	}
 	
+	@Test
+	public void estadoCamarasTest() {
+		String estado = "Camara:\n\tTorre: 1\n\tPiso: 3\n\tDireccion: Derecha";
+		assertEquals(estado, camara.getEstado());
+	}
+	
 }
