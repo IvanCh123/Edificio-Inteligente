@@ -1,5 +1,5 @@
 
 public interface InternetInterface {
 	//public boolean verificarLimite();
-	public void acceder(int idRegistro, String pagina);
+	public String acceder(int idRegistro, String pagina);
 }

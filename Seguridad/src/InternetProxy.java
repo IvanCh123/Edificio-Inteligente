@@ -4,21 +4,31 @@ public class InternetProxy implements InternetInterface{
 
 	int limite = 100;
 	ArrayList<String> paginasRestringidas;
+	InternetManager servicio;
+	
+	public InternetProxy() {
+		this.paginasRestringidas = new ArrayList<String>();
+		this.servicio = new InternetManager();
+	}
+	
 	@Override
-	public void acceder(int idRegistro, String pagina) {
-		InternetManager servicio = new InternetManager();
-		if(servicio.registros.get(idRegistro).size()>=limite) {
-			if(!this.paginasRestringidas.contains(pagina)) {
-				servicio.acceder(idRegistro, pagina);
+	public String acceder(int idRegistro, String pagina) {
+		servicio.verificar(idRegistro);
+		
+			if(this.servicio.registros.get(idRegistro).size()<=limite) {
+				if(!this.paginasRestringidas.contains(pagina)) {
+					return servicio.acceder(idRegistro, pagina);
+				}else {
+					return ("La página que está intentando acceder no está permitida");
+				}
 			}else {
-				System.out.print("La página que está intentando acceder no está permitida");
+				return ("Usted ha exedido el límite de páginas que puede acceder");
 			}
-		}else {
-			System.out.print("Usted ha exedido el límite de páginas que puede acceder");
-		}
+		
 	}
 	
 	public void agregarRestriccion(String restriccion) {
 		this.paginasRestringidas.add(restriccion);
 	}
+
 }

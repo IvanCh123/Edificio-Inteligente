@@ -6,6 +6,7 @@ import org.junit.Test;
 public class SeguridadTest{
 	//Variables para testeo
 	SistemaSeguridad centroMando;
+	InternetProxy servicio;
 	Camara camara;
 	int inquilinoId;
 
@@ -17,6 +18,11 @@ public class SeguridadTest{
 		this.inquilinoId = 1;
 		camara.setEstado(new int[] {1,3,2}); // Torre 1, Piso 3, Direccion derecha
 		camara.agregarVisualizado(inquilinoId);
+		/*PROXY*/
+	
+		
+		this.servicio = new InternetProxy();
+		this.servicio.agregarRestriccion("robarbancos.com");
 	}
 	
 	@Test
@@ -25,7 +31,7 @@ public class SeguridadTest{
 		String resultado = camaraTest.getEstado();
 		String respuesta = camara.getEstado();
 		assertEquals(resultado, respuesta);
-	}
+	} 
 	
 	@Test
 	public void registroAccesosTest() {
@@ -42,6 +48,13 @@ public class SeguridadTest{
 		centroMando.registrarEntrada(2);
 		centroMando.registrarSalida(1);
 		assertEquals(log, logger.print());
+	}
+	
+	@Test
+	public void accederPaginaRestringida() {
+		String esperado = "La página que está intentando acceder no está permitida";
+		String resultado = this.servicio.acceder(0, "robarbancos.com");
+		assertEquals(esperado, resultado);
 	}
 	
 }
