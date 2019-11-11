@@ -18,7 +18,10 @@ public abstract class Sensor {
 	public void setEstado(boolean estado)
 	{
 		this.estado = estado;
-		this.notify("Hay " + this.tipoSensor);
+		if(estado)
+			this.notify("Hay " + this.tipoSensor);
+		else
+			this.notify("No hay "+ this.tipoSensor);
 	}
 	
 	public String toString(){

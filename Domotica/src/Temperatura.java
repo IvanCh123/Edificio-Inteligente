@@ -10,7 +10,7 @@ public class Temperatura extends Sensor{
 	
 	public Temperatura()
 	{
-		this.tipoSensor = "Temperatura";
+		this.tipoSensor = "Temperatura"; 
 	}
 	
 	public void setTemperatura(float temperatura) {

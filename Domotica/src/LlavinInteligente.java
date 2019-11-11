@@ -10,5 +10,5 @@ public class LlavinInteligente extends Actuador{
 	{
 		this.tipoActuador = "LlavinInteligente";
 	}
-	
+	 
 }

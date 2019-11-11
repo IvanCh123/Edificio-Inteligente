@@ -11,7 +11,7 @@ public class Bombillo extends Actuador{
 	public Bombillo() 
 	{
 		this.tipoActuador = "Bombillo";
-	}
+	} 
 	
 	
 	public void cambiarColor(String color){
