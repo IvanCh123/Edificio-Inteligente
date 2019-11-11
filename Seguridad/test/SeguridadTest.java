@@ -23,6 +23,8 @@ public class SeguridadTest{
 		
 		this.servicio = new InternetProxy();
 		this.servicio.agregarRestriccion("robarbancos.com");
+		this.servicio.agregarRestriccion("hackearnasa.com");
+		this.servicio.agregarRestriccion("instaurarelcomunismo.com");
 	}
 	
 	@Test
@@ -56,6 +58,17 @@ public class SeguridadTest{
 		String resultado = this.servicio.acceder(0, "robarbancos.com");
 		assertEquals(esperado, resultado);
 	}
+	
+	@Test
+	public void limiteAccesos() {
+		String esperado = "Usted ha exedido el límite de páginas que puede acceder";
+		String resultado = "";
+		for(int i = 0; i <= 100; i++) {
+			resultado = this.servicio.acceder(1, "0");
+		}
+		assertEquals(esperado, resultado);
+	}
+	
 	@Test
 	public void estadoCamarasTest() {
 		String estado = "Camara:\n\tTorre: 1\n\tPiso: 3\n\tDireccion: Derecha";

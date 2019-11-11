@@ -15,7 +15,8 @@ public class InternetProxy implements InternetInterface{
 	public String acceder(int idRegistro, String pagina) {
 		servicio.verificar(idRegistro);
 		
-			if(this.servicio.registros.get(idRegistro).size()<=limite) {
+			if(this.servicio.registros.get(idRegistro).size()<limite) {
+				System.out.print(this.servicio.registros.get(idRegistro).size());
 				if(!this.paginasRestringidas.contains(pagina)) {
 					return servicio.acceder(idRegistro, pagina);
 				}else {
