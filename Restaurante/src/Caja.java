@@ -21,6 +21,16 @@ public class Caja implements Serializable{
 		this.ordenes.add(sandwiches);
 	}
 	
+	public void enviarOrdenesAlChef()
+	{
+		System.out.println("Enviando la orden al chef\n");
+	}
+	
+	public void cobrarAlCliente()
+	{
+		System.out.println("Cobrando al cliente\n");
+	}
+	
 	public void generarInforme(Orden orden){
 		System.out.println("Generando informe...");
 		System.out.println(this.orden.generarInforme(orden));
@@ -44,5 +54,5 @@ public class Caja implements Serializable{
 		return INSTANCE;
 	}
 	
-	private static final long serialVersionUID = 1L; // No entiendo, ocupo explicación
+	private static final long serialVersionUID = 1L; // No entiendo, ocupo explicaciï¿½n
 }
