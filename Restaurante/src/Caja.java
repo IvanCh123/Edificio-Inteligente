@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Caja implements Serializable{
 	
 	private static Caja INSTANCE;
+
 	private List<Orden> ordenes; 
 	
 	private Caja()
@@ -41,4 +42,5 @@ public class Caja implements Serializable{
 	}
 	
 	private static final long serialVersionUID = 1L; // No entiendo, ocupo explicaci�n
+
 }
