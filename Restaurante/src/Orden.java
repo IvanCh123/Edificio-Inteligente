@@ -62,7 +62,4 @@ public class Orden {
 			return this.estado;
 		}
 	}
-	
-	
-	
 }
