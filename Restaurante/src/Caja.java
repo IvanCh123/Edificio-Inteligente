@@ -7,6 +7,7 @@ public class Caja implements Serializable{
 	private static Caja INSTANCE;
 	private List<Sandwich> sandiwches; 
 	
+	
 	private Caja()
 	{
 		this.sandiwches = new ArrayList<Sandwich>();
