@@ -18,11 +18,13 @@ class RestauranteTester {
 	}
 	
 	@Test
-	public void mexicanoConTomate()
+	public void sandwichMexicano()
 	{
 		Sandwich conTomate = new ConTomate(new SandwichMexicano());
+		Sandwich conQueso = new ConQueso(new SandwichMexicano());
 		
-		sandwiches.add(conTomate);
+		this.sandwiches.add(conTomate);
+		this.sandwiches.add(conQueso);
 		
 		Orden orden = new Orden(this.sandwiches);
 		
@@ -30,29 +32,17 @@ class RestauranteTester {
 		this.caja.generarInforme(orden);
 		
 		assertEquals("Sandwich Mexicano con tomate",conTomate.descripcion());
-	}
-	
-	@Test
-	public void mexicanoConQueso()
-	{
-		Sandwich conQueso = new ConQueso(new SandwichMexicano());
-		
-		this.sandwiches.add(conQueso);
-		
-		Orden orden = new Orden(this.sandwiches);
-		
-		this.caja.addOrden(orden);
-		this.caja.generarInforme(orden);
-		
 		assertEquals("Sandwich Mexicano con queso",conQueso.descripcion());
 	}
 	
 	@Test
-	public void italianoConTomate()
+	public void sandwichItaliano()
 	{
 		Sandwich conTomate = new ConTomate(new SandwichItaliano());
+		Sandwich conQueso = new ConQueso(new SandwichItaliano());
 		
 		sandwiches.add(conTomate);
+		this.sandwiches.add(conQueso);
 		
 		Orden orden = new Orden(this.sandwiches);
 		
@@ -60,21 +50,6 @@ class RestauranteTester {
 		this.caja.generarInforme(orden);
 		
 		assertEquals("Sandwich Italiano con tomate",conTomate.descripcion());
-	}
-	
-	@Test
-	public void italianoConQueso()
-	{
-		Sandwich conQueso = new ConQueso(new SandwichItaliano());
-		
-		this.sandwiches.add(conQueso);
-		
-		Orden orden = new Orden(this.sandwiches);
-		
-		this.caja.addOrden(orden);
-		this.caja.generarInforme(orden);
-		
 		assertEquals("Sandwich Italiano con queso",conQueso.descripcion());
 	}
-
 }

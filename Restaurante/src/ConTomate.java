@@ -1,4 +1,3 @@
-
 public class ConTomate implements Sandwich {
 
 	private Sandwich sandwich;

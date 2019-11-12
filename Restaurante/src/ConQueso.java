@@ -1,11 +1,11 @@
-
 public class ConQueso implements Sandwich {
 
 	private Sandwich sandwich;
 	
 	private double queso = 0.75;
 	
-	public ConQueso(Sandwich sandwich) {
+	public ConQueso(Sandwich sandwich) 
+	{
 		this.sandwich = sandwich;
 	}
 	

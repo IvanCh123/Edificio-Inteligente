@@ -1,4 +1,3 @@
-
 public interface Sandwich {
 	
 	public String descripcion();

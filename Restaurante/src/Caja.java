@@ -7,7 +7,6 @@ public class Caja implements Serializable{
 	private static Caja INSTANCE;
 	private List<Orden> ordenes; 
 	
-	
 	private Caja()
 	{
 		this.ordenes = new ArrayList<Orden>();
@@ -18,14 +17,15 @@ public class Caja implements Serializable{
 		this.ordenes.add(sandwiches);
 	}
 	
-	public void generarInforme(Orden orden){
-		System.out.println("Generando informe...");
+	public void generarInforme(Orden orden)
+	{
+		System.out.println("\nGenerando informe...");
 		System.out.println(orden.generarInforme(orden));
 	}
 	
 	public List<Orden> getState()
 	{
-	      return ordenes;
+	      return this.ordenes;
 	}
 	
 	public synchronized static Caja getCaja()
