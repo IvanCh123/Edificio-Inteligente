@@ -1,26 +1,26 @@
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import java.util.ArrayList;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 class RestauranteTester {
 
 	List<Sandwich> sandwiches;
 	Caja caja;
 	
-	@Before
+	@BeforeEach
 	public void init()
 	{
 		this.sandwiches = new ArrayList<Sandwich>();
-		this.caja = new Caja();
+		this.caja = Caja.getCaja();
 	}
 	
 	@Test
 	public void mexicanoConTomate()
 	{
-		Sandwich conTomate = new SandwichMexicano(new ConTomate());
+		Sandwich conTomate = new ConTomate(new SandwichMexicano());
 		
 		sandwiches.add(conTomate);
 		
@@ -35,7 +35,7 @@ class RestauranteTester {
 	@Test
 	public void mexicanoConQueso()
 	{
-		Sandwich conQueso = new SandwichMexicano(new ConQueso());
+		Sandwich conQueso = new ConQueso(new SandwichMexicano());
 		
 		this.sandwiches.add(conQueso);
 		
@@ -50,7 +50,7 @@ class RestauranteTester {
 	@Test
 	public void italianoConTomate()
 	{
-		Sandwich conTomate = new SandwichItaliano(new ConTomate());
+		Sandwich conTomate = new ConTomate(new SandwichItaliano());
 		
 		sandwiches.add(conTomate);
 		
@@ -65,7 +65,7 @@ class RestauranteTester {
 	@Test
 	public void italianoConQueso()
 	{
-		Sandwich conQueso = new SandwichItaliano(new ConQueso());
+		Sandwich conQueso = new ConQueso(new SandwichItaliano());
 		
 		this.sandwiches.add(conQueso);
 		

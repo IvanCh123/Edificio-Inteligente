@@ -5,8 +5,6 @@ import java.io.Serializable;
 public class Caja implements Serializable{
 	
 	private static Caja INSTANCE;
-	
-	private Orden orden;
 	private List<Orden> ordenes; 
 	
 	
@@ -22,7 +20,7 @@ public class Caja implements Serializable{
 	
 	public void generarInforme(Orden orden){
 		System.out.println("Generando informe...");
-		System.out.println(this.orden.generarInforme(orden));
+		System.out.println(orden.generarInforme(orden));
 	}
 	
 	public List<Orden> getState()

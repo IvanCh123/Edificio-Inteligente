@@ -17,10 +17,10 @@ public class Orden {
 	public String generarInforme(Orden orden){
 		String informe = "";
 		for(Sandwich each : orden.getOrden()) {
-			informe+="------------------\n"
-					 +"Sandwich: "+each.descripcion()
+			informe+="\n------------------\n"
+					 +"\nSandwich: "+each.descripcion()
 					 +"\nPrecio: "+each.precioSandwich()
-					 +"------------------\n";
+					 +"\n------------------\n";
 		}
 		return informe;
 	}
