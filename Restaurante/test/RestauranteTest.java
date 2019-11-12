@@ -29,7 +29,7 @@ class RestauranteTester {
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
-		assertEquals("Sandwich Mexicano con tomate",caja.generarInforme(orden));
+		assertEquals("Sandwich Mexicano con tomate",conTomate.descripcion());
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ class RestauranteTester {
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
-		assertEquals("Sandwich Mexicano con queso",caja.generarInforme(orden));
+		assertEquals("Sandwich Mexicano con queso",conQueso.descripcion());
 	}
 	
 	@Test
@@ -59,7 +59,7 @@ class RestauranteTester {
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
-		assertEquals("Sandwich Mexicano con tomate",caja.generarInforme(orden));
+		assertEquals("Sandwich Italiano con tomate",conTomate.descripcion());
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ class RestauranteTester {
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
-		assertEquals("Sandwich Italiano con queso",caja.generarInforme(orden));
+		assertEquals("Sandwich Italiano con queso",conQueso.descripcion());
 	}
 
 }

@@ -20,9 +20,9 @@ public class Caja implements Serializable{
 		this.ordenes.add(sandwiches);
 	}
 	
-	public String generarInforme(Orden orden){
+	public void generarInforme(Orden orden){
 		System.out.println("Generando informe...");
-		return (this.orden.generarInforme(orden));
+		System.out.println(this.orden.generarInforme(orden));
 	}
 	
 	public List<Orden> getState()
