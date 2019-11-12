@@ -5,17 +5,20 @@ public class ConTomate implements Sandwich {
 	
 	private double tomate = 0.5;
 	
-	public ConTomate(Sandwich sandwich) {
+	public ConTomate(Sandwich sandwich) 
+	{
 		this.sandwich = sandwich;
 	}
 	
 	@Override
-	public String descripcion() {
+	public String descripcion() 
+	{
 		return this.sandwich.descripcion()+" con tomate";
 	}
 
 	@Override
-	public double precioSandwich() {
+	public double precioSandwich() 
+	{
 		return this.sandwich.precioSandwich()+tomate;
 	}
 

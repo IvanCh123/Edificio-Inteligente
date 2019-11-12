@@ -10,12 +10,14 @@ public class ConQueso implements Sandwich {
 	}
 	
 	@Override
-	public String descripcion() {
+	public String descripcion() 
+	{
 		return this.sandwich.descripcion()+" con queso";
 	}
 
 	@Override
-	public double precioSandwich() {
+	public double precioSandwich() 
+	{
 		return this.sandwich.precioSandwich()+queso;
 	}
 

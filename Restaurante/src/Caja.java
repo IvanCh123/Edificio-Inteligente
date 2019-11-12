@@ -5,63 +5,32 @@ import java.io.Serializable;
 public class Caja implements Serializable{
 	
 	private static Caja INSTANCE;
-	private List<Sandwich> sandiwches; 
+	
+	
+	private Orden orden;
+	private List<Orden> ordenes; 
 	
 	
 	private Caja()
 	{
-		this.sandiwches = new ArrayList<Sandwich>();
+		this.ordenes = new ArrayList<Orden>();
 	}
 	
-	public void setState(List<Sandwich> sandwich)
+	public void addOrden(Orden sandwiches) 
 	{
-		this.sandiwches = sandwich;
+		this.ordenes.add(sandwiches);
 	}
 	
-	public List<Sandwich> getState()
-	{
-	      return sandiwches;
-	}
-	
-	public Memento backUp()
-	{
-		return new Memento(this.sandiwches);
-	}
-	
-	public void restore(Memento memento)
-	{
-		this.sandiwches = memento.getState();
-	}
-	
-	
-	public static class Memento	{	
-		private final List<Sandwich> estado; 
-		
-		private Memento(List<Sandwich> listaSandwich)
-		{
-			this.estado = new ArrayList<Sandwich>(listaSandwich.size());
-			for( Sandwich each : estado)
-			{
-				Sandwich sandwich = null;
-				if( each instanceof SandwichMexicano)
-				{
-					sandwich = new SandwichMexicano();		
-				}
-				else if (each instanceof SandwichItaliano)
-				{
-					sandwich = new SandwichItaliano();
-				}
-				
-				this.estado.add(sandwich);
-			}
-		}
-		
-		public List<Sandwich> getState()
-		{
-			return this.estado;
-		}
+	public void generarInforme(Orden orden){
+		System.out.println("Generando informe...");
+		System.out.println(this.orden.generarInforme(orden));
 	}
 
+	
+	public List<Orden> getState()
+	{
+	      return ordenes;
+	}
 	
 	public synchronized static Caja getCaja()
 	{
