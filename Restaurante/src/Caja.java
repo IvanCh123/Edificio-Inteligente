@@ -21,6 +21,9 @@ public class Caja implements Serializable{
 		this.ordenes.add(sandwiches);
 	}
 	
+<<<<<<< HEAD
+	public String generarInforme(Orden orden){
+=======
 	public void enviarOrdenesAlChef()
 	{
 		System.out.println("Enviando la orden al chef\n");
@@ -32,8 +35,9 @@ public class Caja implements Serializable{
 	}
 	
 	public void generarInforme(Orden orden){
+>>>>>>> fb437ed1c28fe3a42acfa6fd09e08dce69b9ceb4
 		System.out.println("Generando informe...");
-		System.out.println(this.orden.generarInforme(orden));
+		return (this.orden.generarInforme(orden));
 	}
 
 	
