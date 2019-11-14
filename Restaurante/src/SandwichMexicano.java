@@ -11,4 +11,10 @@ public class SandwichMexicano implements Sandwich {
 	{
 		return 5;
 	}
+	
+	@Override
+	public String getTipo(){
+		return "Mexicano";
+	}
+
 }

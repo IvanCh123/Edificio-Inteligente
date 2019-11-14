@@ -24,6 +24,11 @@ public class Caja implements Serializable{
 		System.out.println(orden.generarInforme(orden));
 	}
 	
+	// Para que sirva el tester
+	public String getTotal(Orden orden){
+		return Double.toString(orden.getTotal());
+	}
+	
 	public List<Orden> getState()
 	{
 	      return this.ordenes;

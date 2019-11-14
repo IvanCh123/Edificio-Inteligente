@@ -1,33 +1,30 @@
 import static org.junit.Assert.*;
 
-import java.util.List;
-import java.util.ArrayList;
+import org.junit.Before;
+import org.junit.Test;
 
-import org.junit.jupiter.api.*;
-
-class RestauranteTester {
-
-	List<Sandwich> sandwiches;
-	Caja caja;
+public class RestauranteTest {
 	
-	@BeforeEach
+	Caja caja;
+	Orden orden;
+	
+	@Before
 	public void init()
 	{
-		this.sandwiches = new ArrayList<Sandwich>();
+		//this.sandwiches = new ArrayList<Sandwich>();
 		this.caja = Caja.getCaja();
+		this.orden = new Orden();
 	}
 	
-	@Test
+	//@Test
 	public void sandwichMexicano()
 	{
 		Sandwich conTomate = new ConTomate(new SandwichMexicano());
 		Sandwich conQueso = new ConQueso(new SandwichMexicano());
 		
-		this.sandwiches.add(conTomate);
-		this.sandwiches.add(conQueso);
-		
-		Orden orden = new Orden(this.sandwiches);
-		
+		this.orden.addSandwich(conTomate);
+		this.orden.addSandwich(conQueso);
+				
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
@@ -35,21 +32,47 @@ class RestauranteTester {
 		assertEquals("Sandwich Mexicano con queso",conQueso.descripcion());
 	}
 	
-	@Test
+	
 	public void sandwichItaliano()
 	{
 		Sandwich conTomate = new ConTomate(new SandwichItaliano());
 		Sandwich conQueso = new ConQueso(new SandwichItaliano());
 		
-		sandwiches.add(conTomate);
-		this.sandwiches.add(conQueso);
-		
-		Orden orden = new Orden(this.sandwiches);
+		this.orden.addSandwich(conTomate);
+		this.orden.addSandwich(conQueso);
 		
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
 		assertEquals("Sandwich Italiano con tomate",conTomate.descripcion());
 		assertEquals("Sandwich Italiano con queso",conQueso.descripcion());
+	}
+	
+	@Test
+	public void testMemento(){
+		Sandwich conTomate = new ConTomate(new SandwichItaliano());
+		Sandwich conQueso = new ConQueso(new SandwichItaliano());
+		Sandwich conQuesoQueso = new ConQueso(new ConQueso(new SandwichItaliano()));
+		
+		this.orden.addSandwich(conTomate);
+		this.orden.addSandwich(conQueso);
+		
+		
+		Orden.Memento anterior = orden.backUp();
+		
+		this.orden.addSandwich(conQuesoQueso);
+		
+		
+		//this.caja.addOrden(orden);
+		this.caja.generarInforme(orden);
+		
+		this.orden.restore(anterior);
+		
+		//this.caja.addOrden(orden);
+		this.caja.generarInforme(orden);
+		
+		assertEquals("13.25",this.caja.getTotal(orden));
+		
+		
 	}
 }

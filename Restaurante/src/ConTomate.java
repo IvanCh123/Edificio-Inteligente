@@ -20,5 +20,10 @@ public class ConTomate implements Sandwich {
 	{
 		return this.sandwich.precioSandwich()+tomate;
 	}
-
+	
+	@Override 
+	public String getTipo()
+	{
+		return sandwich.getTipo();
+	}
 }

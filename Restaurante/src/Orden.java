@@ -8,21 +8,31 @@ import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
 public class Orden {
 	
 	private List<Sandwich> orden; 
+	private double total;
 	
 	DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 	
-	public Orden(List<Sandwich> sandwiches)
+	public Orden()
 	{
-		this.orden = sandwiches;
+		this.orden = new ArrayList<Sandwich>();
+		this.total = 0.0;
 	}
 	
 	public List<Sandwich> getOrden(){
 		return this.orden;
 	}
 	
+	
+	public void addSandwich(Sandwich sandwich){
+		this.orden.add(sandwich);
+	}
+	
+	public double getTotal(){
+		return this.total;
+	}
+	
 	public String generarInforme(Orden orden){
 		String informe = "";
-		double total = 0.0;
 		String time = LocalDateTime.now().format(this.timeFormat);
 		
 		informe+="\n------------------"
@@ -31,10 +41,10 @@ public class Orden {
 		for(Sandwich each : orden.getOrden()) {
 			informe+= "\n	Sandwich: "+each.descripcion()
 					 +"\n	Precio: "+each.precioSandwich()+"\n";
-			total+=each.precioSandwich();	
+			this.total+=each.precioSandwich();	
 		}
 				
-		informe+="\nTotal: $"+total	
+		informe+="\nTotal: $"+this.total	
 				 +"\nHora: "+time
 				 +"\n------------------";
 		return informe;
@@ -43,41 +53,37 @@ public class Orden {
 	public Memento backUp()
 	{
 		System.out.println("Guardando en el Memento");
-		return new Memento(this.orden);
+		return new Memento(this.orden, this.total);
 	}
 	
 	public void restore(Memento memento)
 	{
 		System.out.println("Restaurando Memento");
 		this.orden = memento.getState();
-	}
-	
+		this.total = memento.getTotal();
+	}	
 	
 	public static class Memento	{	
 		private final List<Sandwich> estado; 
+		private final double total;
 		
-		private Memento(List<Sandwich> listaSandwich)
+		private Memento(List<Sandwich> listaSandwich, double total)
 		{
-			this.estado = new ArrayList<Sandwich>(listaSandwich.size());
-			for( Sandwich each : this.estado)
-			{
-				Sandwich sandwich = null;
-				if( each instanceof SandwichMexicano)
-				{
-					sandwich = new SandwichMexicano();		
-				}
-				else if (each instanceof SandwichItaliano)
-				{
-					sandwich = new SandwichItaliano();
-				}
-				
-				this.estado.add(sandwich);
+			this.estado = new ArrayList<Sandwich>();
+			this.total = total;
+			for( Sandwich each : listaSandwich)
+			{				
+				this.estado.add(each);
 			}
 		}
 		
 		public List<Sandwich> getState()
 		{
 			return this.estado;
+		}
+		
+		public double getTotal(){
+			return this.total;
 		}
 	}
 }

@@ -20,5 +20,10 @@ public class ConQueso implements Sandwich {
 	{
 		return this.sandwich.precioSandwich()+queso;
 	}
-
+	
+	@Override 
+	public String getTipo()
+	{
+		return sandwich.getTipo();
+	}
 }
