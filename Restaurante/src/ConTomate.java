@@ -22,8 +22,8 @@ public class ConTomate implements Sandwich {
 	}
 	
 	@Override 
-	public String getTipo()
+	public Sandwich clone()
 	{
-		return sandwich.getTipo();
+		return new ConTomate(this.sandwich); 
 	}
 }

@@ -22,8 +22,8 @@ public class ConQueso implements Sandwich {
 	}
 	
 	@Override 
-	public String getTipo()
+	public Sandwich clone()
 	{
-		return sandwich.getTipo();
+		return new ConQueso(this.sandwich); 
 	}
 }

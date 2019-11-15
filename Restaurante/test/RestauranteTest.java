@@ -62,13 +62,11 @@ public class RestauranteTest {
 		
 		this.orden.addSandwich(conQuesoQueso);
 		
-		
-		//this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
 		this.orden.restore(anterior);
 		
-		//this.caja.addOrden(orden);
+		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
 		
 		assertEquals("13.25",this.caja.getTotal(orden));

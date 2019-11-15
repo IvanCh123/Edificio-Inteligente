@@ -12,8 +12,9 @@ public class SandwichItaliano implements Sandwich {
 		return 6;
 	}
 	
-	@Override
-	public String getTipo(){
-		return "Italiano";
+	@Override 
+	public Sandwich clone()
+	{
+		return new SandwichMexicano(); 
 	}
 }

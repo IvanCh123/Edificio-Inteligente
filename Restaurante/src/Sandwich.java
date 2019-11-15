@@ -4,6 +4,6 @@ public interface Sandwich {
 	
 	public double precioSandwich();
 	
-	public String getTipo();
+	public Sandwich clone(); 
 	
 }

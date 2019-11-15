@@ -73,7 +73,7 @@ public class Orden {
 			this.total = total;
 			for( Sandwich each : listaSandwich)
 			{				
-				this.estado.add(each);
+				this.estado.add(each.clone());
 			}
 		}
 		
