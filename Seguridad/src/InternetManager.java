@@ -10,6 +10,7 @@ public class InternetManager implements InternetInterface{
 	@Override
 	public String acceder(int idRegistro, String pagina) {
 		this.registros.get(idRegistro).add(pagina);
+		System.out.print("Se accedió a " + pagina + "\n");
 		return ("Se accedió a la página "+pagina);
 	}
 

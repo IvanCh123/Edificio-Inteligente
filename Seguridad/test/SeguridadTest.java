@@ -6,7 +6,6 @@ import org.junit.Test;
 public class SeguridadTest{
 	//Variables para testeo
 	SistemaSeguridad centroMando;
-	InternetProxy servicio;
 	Camara camara;
 	int inquilinoId;
 
@@ -19,12 +18,9 @@ public class SeguridadTest{
 		camara.setEstado(new int[] {1,3,2}); // Torre 1, Piso 3, Direccion derecha
 		camara.agregarVisualizado(inquilinoId);
 		/*PROXY*/
-	
-		
-		this.servicio = new InternetProxy();
-		this.servicio.agregarRestriccion("robarbancos.com");
-		this.servicio.agregarRestriccion("hackearnasa.com");
-		this.servicio.agregarRestriccion("instaurarelcomunismo.com");
+		this.centroMando.agregarRestriccion("robarbancos.com");
+		this.centroMando.agregarRestriccion("hackearnasa.com");
+		this.centroMando.agregarRestriccion("instaurarelcomunismo.com");
 	}
 	
 	@Test
@@ -55,7 +51,7 @@ public class SeguridadTest{
 	@Test
 	public void accederPaginaRestringida() {
 		String esperado = "La página que está intentando acceder no está permitida";
-		String resultado = this.servicio.acceder(0, "robarbancos.com");
+		String resultado = this.centroMando.acceder(0, "robarbancos.com");
 		assertEquals(esperado, resultado);
 	}
 	
@@ -64,7 +60,7 @@ public class SeguridadTest{
 		String esperado = "Usted ha exedido el límite de páginas que puede acceder";
 		String resultado = "";
 		for(int i = 0; i <= 100; i++) {
-			resultado = this.servicio.acceder(1, "0");
+			resultado = this.centroMando.acceder(1, "0");
 		}
 		assertEquals(esperado, resultado);
 	}

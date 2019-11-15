@@ -16,13 +16,14 @@ public class InternetProxy implements InternetInterface{
 		servicio.verificar(idRegistro);
 		
 			if(this.servicio.registros.get(idRegistro).size()<limite) {
-				System.out.print(this.servicio.registros.get(idRegistro).size());
 				if(!this.paginasRestringidas.contains(pagina)) {
 					return servicio.acceder(idRegistro, pagina);
 				}else {
+					System.out.print("La página " +pagina+" no está permitida. \n");
 					return ("La página que está intentando acceder no está permitida");
 				}
 			}else {
+				System.out.print("Usted ha exedido el límite de páginas que puede acceder. \n");
 				return ("Usted ha exedido el límite de páginas que puede acceder");
 			}
 		
