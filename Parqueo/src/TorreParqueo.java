@@ -3,32 +3,21 @@ public class TorreParqueo {
 	int pequeno;
 	int mediano;
 	int grande;
+	int pequenoDisponible;
+	int medianoDisponible;
+	int grandeDisponible;
 	
-	public TorreParqueo() {
-		
+	public TorreParqueo(int cantidadParqueos, int accesos) {
+		pequeno = (int) (cantidadParqueos*0.25);
+		grande = (int) (cantidadParqueos*0.25);
+		mediano = cantidadParqueos-(pequeno+grande);
+		pequenoDisponible = 0;
+		medianoDisponible = 0;
+		grandeDisponible = 0;
 	}
 	
-	public void setPequeno(int tam) {
-		this.pequeno = tam;
-	}
-	
-	public int getPequeno() {
-		return this.pequeno;
-	}
-	
-	public void setMediano(int tam) {
-		this.mediano = tam;
-	}
-	
-	public int getMediano() {
-		return this.mediano;
-	}
-	
-	public void setGrande(int tam) {
-		this.grande = tam;
-	}
-	
-	public int getGrande() {
-		return this.grande;
+	public void parquear(Vehiculo vehiculo) {
+		String tamano = vehiculo.getTamano();
+		System.out.println("Iniciando proceso de parqueo para vehículo: " + tamano + "\n");
 	}
 }
