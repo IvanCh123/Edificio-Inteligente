@@ -49,7 +49,6 @@ public class Mediator {
 		
 			for(int index = 0; index < comportamientos.get(commandNombre).size(); ++index){
 				comportamientos.get(commandNombre).get(index).ejecutar();		
-				System.out.println("Holis");
 			}
 		}
 	}
