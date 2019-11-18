@@ -1,4 +1,5 @@
 
+
 public class AireAcondicionado extends Actuador{
 	
 	int potencia;

@@ -1,3 +1,5 @@
+
+
 public abstract class Actuador {
 
 	protected boolean estado;
@@ -15,7 +17,7 @@ public abstract class Actuador {
 	}
 	
 	public void apagar() {
-		estado = false; 
+		this.estado = false; 
 		notify(this.tipoActuador + " apagar");
 	}
 	

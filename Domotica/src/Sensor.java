@@ -1,4 +1,5 @@
 
+
 public abstract class Sensor {
  
 	protected String tipoSensor;

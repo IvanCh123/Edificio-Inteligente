@@ -1,4 +1,3 @@
-
 public abstract class SensoresFactory {
 	
 	public Sensor crear()
