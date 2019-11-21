@@ -20,12 +20,16 @@ public class TorreParqueo {
 		String ficha = "";
 		String tamano = vehiculo.getTamano();
 		System.out.println("Iniciando proceso de parqueo para vehículo: " + tamano + "\n");
-		// Hacer matriz de pisos con lugares de parqueso para armar la ficha
+		// - Hacer matriz de pisos con lugares de parqueos para armar la ficha
+		// - Búsqueda recursiva de espacio más cercano al acceso
+		// - Clase Acceso que tenga espacio más cercano disponible
+		// - Patrón Observer entre los accesos para notificar cuando se utiliza un acceso
+		// para que si el que se usa es el más cercano del otro entonces este tiene que buscar uno nuevo
 		return ficha;
 	}
 	
 	public Vehiculo retirarVehiculo(String ficha) {
-		Vehiculo vehiculo;
+		Vehiculo vehiculo = new Vehiculo();
 		int posicion;
 		return vehiculo;
 	}
