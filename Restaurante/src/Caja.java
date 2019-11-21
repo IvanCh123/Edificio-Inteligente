@@ -16,6 +16,7 @@ public class Caja implements Serializable{
 	public void addOrden(Orden sandwiches) 
 	{
 		this.ordenes.add(sandwiches);
+		
 	}
 	
 	public void generarInforme(Orden orden)
