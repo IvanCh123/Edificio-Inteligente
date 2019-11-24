@@ -9,14 +9,7 @@ public class EncenderAire implements TratamientoComportamiento {
 	
 	@Override
 	public void ejecutar() {
-		System.out.println("Se encendió el aire");
-		aire.apagar();
+		aire.encender();
 
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "EncenderAire";
 	}
 }

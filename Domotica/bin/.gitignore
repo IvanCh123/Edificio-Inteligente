@@ -14,9 +14,7 @@
 /EncenderBombillo.class
 /EncenderRadio.class
 /EncenderTelevision.class
-/LlavinInteligente.class
 /Mediator.class
-/Movimiento.class
 /Radio.class
 /RadioFactory.class
 /Sensor.class
@@ -25,9 +23,6 @@
 /SensorSonido.class
 /SensorTemperatura.class
 /SensoresFactory.class
-/Shock.class
-/Sonido.class
 /Television.class
 /TelevisionFactory.class
-/Temperatura.class
 /TratamientoComportamiento.class

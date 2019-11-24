@@ -11,4 +11,4 @@ public class Television extends Actuador{
 	{
 		this.tipoActuador = "Television";
 	}
-}
+} 

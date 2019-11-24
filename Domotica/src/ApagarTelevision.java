@@ -8,14 +8,7 @@ public class ApagarTelevision implements TratamientoComportamiento{
 	
 	@Override
 	public void ejecutar() {
-		System.out.println("Se apagó la televisión");
 		television.apagar();
 
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "ApagarTelevision";
 	}
 }

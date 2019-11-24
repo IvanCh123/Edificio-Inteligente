@@ -15,9 +15,9 @@ public class Mediator {
 	
 	public Mediator()
 	{
-		sensores = new ArrayList<Sensor>(); 
-		actuadores = new ArrayList<Actuador>();
-		comportamientos = new HashMap<String,  List<TratamientoComportamiento>>();
+		this.sensores = new ArrayList<Sensor>(); 
+		this.actuadores = new ArrayList<Actuador>();
+		this.comportamientos = new HashMap<String,  List<TratamientoComportamiento>>();
 	}
 	
 	public void setSensores(List<Sensor> sensores)
@@ -33,25 +33,25 @@ public class Mediator {
 	public void addComportamiento(String commandNombre, TratamientoComportamiento command ){
 		
 
-		if ( comportamientos.get(commandNombre) == null)
+		if ( this.comportamientos.get(commandNombre.toLowerCase()) == null)
 		{
-			comportamientos.put(commandNombre, new ArrayList<TratamientoComportamiento>());
+			this.comportamientos.put(commandNombre.toLowerCase(), new ArrayList<TratamientoComportamiento>());
 			
 		}
-		comportamientos.get(commandNombre).add(command);
+		this.comportamientos.get(commandNombre.toLowerCase()).add(command);
 		
 	}
 	
 	
 	public void ejecutarComportamiento(String commandNombre){
 		
-		if(comportamientos.get(commandNombre) != null) {
+		if(this.comportamientos.get(commandNombre.toLowerCase()) != null) {
 		
-			for(int index = 0; index < comportamientos.get(commandNombre).size(); ++index){
-				comportamientos.get(commandNombre).get(index).ejecutar();		
+			for(int index = 0; index < this.comportamientos.get(commandNombre.toLowerCase()).size(); ++index){
+				this.comportamientos.get(commandNombre.toLowerCase()).get(index).ejecutar();		
 			}
 		}
-	}
+	} 
 }
 
 	

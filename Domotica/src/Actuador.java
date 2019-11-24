@@ -11,13 +11,20 @@ public abstract class Actuador {
 		this.mediator = mediator;
 	}
 	
+	public void setTipoActuador(String tipoActuador) 
+	{
+		this.tipoActuador = tipoActuador;
+	}
+	
 	public void encender(){
-		this.estado = true;	
+		this.estado = true;
+		System.out.println("Se enciende "+this.tipoActuador);
 		notify(this.tipoActuador + " encender");
 	}
 	
 	public void apagar() {
 		this.estado = false; 
+		System.out.println("Se apaga "+this.tipoActuador);
 		notify(this.tipoActuador + " apagar");
 	}
 	
@@ -26,8 +33,8 @@ public abstract class Actuador {
 	}
 	
 	public void notify(String commandNombre){
-		 mediator.ejecutarComportamiento(commandNombre);
+		 mediator.ejecutarComportamiento(commandNombre.toLowerCase());
 	}
 	
 	protected abstract Actuador crearActuador();
-}
+} 

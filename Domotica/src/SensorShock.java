@@ -1,8 +1,4 @@
-
-
 public class SensorShock extends Sensor{
-
-	boolean vibracion;
 	
 	protected Sensor crearSensor() 
 	{
@@ -13,13 +9,4 @@ public class SensorShock extends Sensor{
 	{
 		this.tipoSensor = "Shock";
 	}
-	
-	public void setVibracion(boolean vibracion) {
-		this.vibracion = vibracion;
-	}
-	
-	public boolean getVibracion() {
-		return this.vibracion;
-	}
-	
 }

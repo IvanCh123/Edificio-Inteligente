@@ -9,14 +9,7 @@ public class ApagarBombillo implements TratamientoComportamiento {
 	
 	@Override
 	public void ejecutar() {
-		System.out.println("Se apagó el bombillo");
 		bombillo.apagar();
-
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "EncenderBombillo";
+ 
 	}
 }

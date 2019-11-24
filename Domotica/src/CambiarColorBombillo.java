@@ -13,14 +13,7 @@ public class CambiarColorBombillo implements TratamientoComportamiento {
 	
 	@Override
 	public void ejecutar() {
-		System.out.println("Se cambió el color del bombillo "+this.color);
 		((Bombillo)bombillo).cambiarColor(this.color);
-
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "CambiarColor";
+ 
 	}
 }

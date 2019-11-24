@@ -21,12 +21,16 @@ public class DomoticaTest{
 	}
 	
 	@Test
-	public void hayMovimientoEncenderBombilloTest(){
+	public void hayMovimientoEncenderBombilloApagarAire()
+	{	
+		System.out.println("\n\n===== hayMovimientoEncenderBombilloApagarAire =====");
 		
-		Sensor movimiento = new SensorMovimiento(); 
+		ActuadoresFactory bombilloFactory = new BombilloFactory();
+		Actuador bombillo = bombilloFactory.crear(); 
+		ActuadoresFactory aireFactory = new AireAcondicionadoFactory();
+		Actuador aire = aireFactory.crear();
 		
-		Actuador bombillo = new Bombillo(); 
-		Actuador aire = new AireAcondicionado(); 
+		Sensor movimiento = new SensorMovimiento();
 		
 		movimiento.setMediator(this.mediator);
 		bombillo.setMediator(this.mediator);
@@ -50,13 +54,15 @@ public class DomoticaTest{
 		movimiento.setEstado(true); 
 		
 		
-		assertTrue("Se encendió el bombillo",bombillo.getEstado());
+		assertTrue("Se encendio el bombillo",bombillo.getEstado());
 		assertFalse("Se apago el aire",aire.getEstado());
 	}
 	
 	@Test 
-	public void enciendeBombilloApagarRadioTest()
+	public void enciendeBombilloApagarRadio()
 	{
+		System.out.println("\n\n===== enciendeBombilloApagarRadio =====");
+		
 		ActuadoresFactory bombilloFactory = new BombilloFactory();
 		Actuador bombillo = bombilloFactory.crear();
 		
@@ -80,6 +86,8 @@ public class DomoticaTest{
 	@Test
 	public void encenderTeleCambiarColorBombillo()
 	{
+		System.out.println("\n\n===== encenderTeleCambiarColorBombillo =====");
+		
 		ActuadoresFactory bombilloFactory = new BombilloFactory();
 		Actuador bombillo = bombilloFactory.crear();
 		
@@ -89,13 +97,79 @@ public class DomoticaTest{
 		bombillo.setMediator(this.mediator);
 		television.setMediator(this.mediator);
 		
+		this.actuadores.add(bombillo);
+		this.actuadores.add(television);
+		
 		this.mediator.setActuadores(this.actuadores);
 		
-		this.mediator.addComportamiento("Television encender", new CambiarColorBombillo( bombillo, "rojo"));
+		this.mediator.addComportamiento("TeLevIsiOn encender", new CambiarColorBombillo( bombillo, "rojo"));
 		
 		television.encender();
 		
-		System.out.println("Estado: "+((Bombillo)bombillo).getColor());
 		assertEquals("rojo",((Bombillo)bombillo).getColor());
+	}
+	
+	@Test
+	public void encenderBombilloSalaApagaBombilloCocina() 
+	{
+		System.out.println("\n\n===== encenderBombilloSalaApagaBombilloCocina =====");
+		
+		
+		ActuadoresFactory bombilloFactory = new BombilloFactory();
+		Actuador bombilloSala = bombilloFactory.crear();
+		Actuador bombilloCocina = bombilloFactory.crear();
+		
+		bombilloSala.setMediator(this.mediator);
+		bombilloCocina.setMediator(this.mediator);
+		
+		bombilloSala.setTipoActuador("Bombillo sala");
+		bombilloCocina.setTipoActuador("Bombillo cocina");
+		
+		
+		this.actuadores.add(bombilloSala);
+		this.actuadores.add(bombilloCocina);
+		this.mediator.setActuadores(this.actuadores);
+		
+		
+		
+		this.mediator.addComportamiento("Bombillo sala encender", new ApagarBombillo(bombilloCocina));
+		
+		bombilloSala.encender();
+		
+		
+		assertFalse("Se apago bombillo sala",bombilloCocina.getEstado());
+		
+	}
+	
+	@Test
+	public void sensorTemperaturaMenorEncenderAire()
+	{
+		
+		System.out.println("\n\n===== sensorTemperaturaMenorEncenderAire =====");
+		
+		ActuadoresFactory aireFactory = new AireAcondicionadoFactory();
+		Actuador aire = aireFactory.crear();
+		
+		Sensor temperatura = new SensorTemperatura();
+		
+		aire.setMediator(this.mediator);
+		temperatura.setMediator(this.mediator);
+		
+		this.actuadores.add(aire);
+		this.sensores.add(temperatura);
+		
+		this.mediator.setActuadores(this.actuadores);
+		this.mediator.setSensores(this.sensores);
+		
+		
+		((SensorTemperatura)temperatura).setTemperatura(21);
+		
+		this.mediator.addComportamiento("TempERatura menor", new EncenderAire(aire));
+		
+		((SensorTemperatura)temperatura).setTemperatura(14);
+		
+		assertTrue("Se encendio el aire",aire.getEstado());
+		
+		
 	}
 }
