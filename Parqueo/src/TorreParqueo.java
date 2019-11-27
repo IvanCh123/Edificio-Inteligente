@@ -29,7 +29,7 @@ public class TorreParqueo {
 	}
 	
 	public Vehiculo retirarVehiculo(String ficha) {
-		Vehiculo vehiculo = new Vehiculo();
+		Vehiculo vehiculo = new Sedan();
 		int posicion;
 		return vehiculo;
 	}
