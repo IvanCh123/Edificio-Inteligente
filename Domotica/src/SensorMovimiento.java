@@ -1,21 +1,22 @@
 
-public class Movimiento extends Sensor{
+
+public class SensorMovimiento extends Sensor{
 	
 	boolean movimiento;
 	
 	protected Sensor crearSensor() 
 	{
-		return new Movimiento(); 
+		return new SensorMovimiento(); 
 	}
 	
-	public Movimiento()
+	public SensorMovimiento()
 	{
 		this.tipoSensor = "Movimiento";
 	}
 	
 	public void setMovimiento(boolean movimiento) {
 		this.movimiento = movimiento;
-		this.notify(this.tipoSensor);
+		this.notify(this.tipoSensor); 
 	}
 	
 	public boolean getMovimiento() {

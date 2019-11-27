@@ -1,7 +1,5 @@
-
 public abstract class ActuadoresFactory {
 
-	
 	public Actuador crear()
 	{
 		Actuador actuador = crearActuador();
@@ -10,5 +8,5 @@ public abstract class ActuadoresFactory {
 		
 	}
 		
-	public abstract Actuador crearActuador();
+	protected abstract Actuador crearActuador();
 }

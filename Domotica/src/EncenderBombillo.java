@@ -1,4 +1,3 @@
-
 public class EncenderBombillo implements TratamientoComportamiento {
 
 	Actuador bombillo; 
@@ -10,14 +9,7 @@ public class EncenderBombillo implements TratamientoComportamiento {
 	
 	@Override
 	public void ejecutar() {
-		System.out.println("Se prendió el bombillo");
 		bombillo.encender();
-
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "EncenderBombillo";
+ 
 	}
 }

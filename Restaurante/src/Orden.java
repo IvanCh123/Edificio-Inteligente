@@ -9,6 +9,7 @@ public class Orden {
 	
 	private List<Sandwich> orden; 
 	private double total;
+	Memento memento;
 	
 	DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 	
@@ -24,6 +25,7 @@ public class Orden {
 	
 	
 	public void addSandwich(Sandwich sandwich){
+		this.memento = backUp();
 		this.orden.add(sandwich);
 	}
 	
@@ -52,15 +54,15 @@ public class Orden {
 	
 	public Memento backUp()
 	{
-		System.out.println("Guardando en el Memento");
+		System.out.println("Backing Up: Guardando en el Memento");
 		return new Memento(this.orden, this.total);
 	}
 	
-	public void restore(Memento memento)
+	public void restore()
 	{
-		System.out.println("Restaurando Memento");
-		this.orden = memento.getState();
-		this.total = memento.getTotal();
+		System.out.println("Restoring: Restaurando Memento");
+		this.orden = this.memento.getState();
+		this.total = this.memento.getTotal();
 	}	
 	
 	public static class Memento	{	

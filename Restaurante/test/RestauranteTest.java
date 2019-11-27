@@ -11,12 +11,11 @@ public class RestauranteTest {
 	@Before
 	public void init()
 	{
-		//this.sandwiches = new ArrayList<Sandwich>();
 		this.caja = Caja.getCaja();
 		this.orden = new Orden();
 	}
 	
-	//@Test
+	@Test
 	public void sandwichMexicano()
 	{
 		Sandwich conTomate = new ConTomate(new SandwichMexicano());
@@ -32,7 +31,7 @@ public class RestauranteTest {
 		assertEquals("Sandwich Mexicano con queso",conQueso.descripcion());
 	}
 	
-	
+	@Test
 	public void sandwichItaliano()
 	{
 		Sandwich conTomate = new ConTomate(new SandwichItaliano());
@@ -57,14 +56,11 @@ public class RestauranteTest {
 		this.orden.addSandwich(conTomate);
 		this.orden.addSandwich(conQueso);
 		
-		
-		Orden.Memento anterior = orden.backUp();
-		
 		this.orden.addSandwich(conQuesoQueso);
 		
 		this.caja.generarInforme(orden);
 		
-		this.orden.restore(anterior);
+		this.orden.restore();
 		
 		this.caja.addOrden(orden);
 		this.caja.generarInforme(orden);
