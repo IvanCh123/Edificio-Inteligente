@@ -4,10 +4,12 @@ public class SistemaSeguridad {
 	private static SistemaSeguridad sistema;
 	private CamarasComposite sistemaCamaras;
 	private ActividadManager manager;
+	private InternetProxy proxy;
 	
 	private SistemaSeguridad() {
 		sistemaCamaras = new CamarasComposite();
 		manager = new ActividadManager();
+		proxy = new InternetProxy();
 	}
 	
 	public static SistemaSeguridad getInstancia() {
@@ -44,6 +46,14 @@ public class SistemaSeguridad {
 	
 	public void agregarAcceso(ActividadListener observer) {
 		this.manager.suscribir("Acceso", observer);
+	}
+	
+	public void agregarRestriccion(String restriccion) {
+		this.proxy.agregarRestriccion(restriccion);
+	}
+	
+	public String acceder(int idRegistro, String pagina) {
+		return this.proxy.acceder(idRegistro, pagina);
 	}
 
 }
