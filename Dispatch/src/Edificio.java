@@ -4,10 +4,10 @@ import java.util.ArrayList;
 public class Edificio {
 
 	private int numeroDePisos; 
-	private List<Elevador> elevadores; 
+	private List<Elevator> elevadores; 
 	
 	private Edificio() {
-		elevadores = new ArrayList<Elevador>(); 
+		elevadores = new ArrayList<Elevator>(); 
 	}
 	
 	public static class Builder
@@ -25,7 +25,7 @@ public class Edificio {
 			return this; 
 		}
 		
-		public Builder setElevadores(List<Elevador> elevadores)
+		public Builder setElevadores(List<Elevator> elevadores)
 		{
 			edificio.elevadores.addAll(elevadores); 
 			return this; 
