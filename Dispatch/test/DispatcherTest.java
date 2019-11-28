@@ -38,13 +38,22 @@ class DispatcherTest {
 							.addPiso(4)
 							.addPiso(1)
 							.build();
+		Elevator elevador2 = new Elevator.Builder()
+							.setID(2)
+							.setPisoActual(1)
+							.addPiso(3)
+							.addPiso(6)
+							.addPiso(7)
+							.build();
 
 		Dispatcher dispatcher = new Dispatcher.Builder()
 								.addElevador(elevador)
-								.setNumeroDePisos(10);
+								.setNumeroDePisos(10)
+								.build();
+											
 								
-								
-		dispatcher.pedirElevador(3);	
+		System.out.println("Pedir "+dispatcher.pedirElevador(3));			
+		assertEquals(dispatcher.pedirElevador(3),1);	
 		
 		System.out.println("*** Stepping simulation ***");
         while(dispatcher.getPedidos() > 0){

@@ -32,7 +32,7 @@ public class Dispatcher {
 		public Builder setNumeroDePisos(int numeroDePisos)
 		{
 			this.edificio.numeroDePisos = numeroDePisos; 
-			return this; 
+			return this;
 		}
 		
 		public Builder setElevadores(List<Elevator> elevadores)
@@ -65,7 +65,6 @@ public class Dispatcher {
 
 
 	public void step() {
-        //Loop though every elevator and call move
         for (Elevator currElevator : this.elevadores) {
             if(currElevator.moverElevador()){
                 this.pedidos--;
