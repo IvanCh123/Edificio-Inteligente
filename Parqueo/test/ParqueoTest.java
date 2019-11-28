@@ -12,10 +12,13 @@ public class ParqueoTest {
 
 	@Before
 	public void inicializarVariables() {
+		VehiculosFactory suvFactory = new SUVFactory();
+		VehiculosFactory motoFactory = new MotocicletaFactory();
+		VehiculosFactory compactoFactory = new CompactoFactory();
 		this.torre = new TorreParqueo(100, 3, 5);
-		this.suv = new SUV();
-		this.compacto  = new Compacto();
-		this.moto = new Motocicleta();
+		this.suv = suvFactory.crear();
+		this.compacto  = compactoFactory.crear();
+		this.moto = motoFactory.crear();
 	}
 	
 	@Test
