@@ -1,5 +1,5 @@
 
-public class SUV implements Vehiculo {
+public class SUV extends Vehiculo {
 
 	@Override
 	public String getTamano() {

@@ -1,14 +1,14 @@
 
-public class Compacto implements Vehiculo {
+public class Compacto extends Vehiculo{
 	
-	@Override
+	protected Vehiculo crearVehiculo() {
+		return new Compacto();
+	}
+	
 	public String getTamano() {
 		return "Mediano";
 	}
 
-	@Override
-	public Vehiculo crearVehiculo() {
-		return new Compacto();
-	}
+	
 
 }

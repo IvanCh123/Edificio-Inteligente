@@ -1,15 +1,11 @@
 
-public class Sedan implements Vehiculo {
+public class Sedan extends Vehiculo {
 	
-	@Override
+	protected Vehiculo crearVehiculo() {
+		return new Sedan();
+	}
+	
 	public String getTamano() {
 		return "Mediano";
 	}
-
-	@Override
-	public Vehiculo crearVehiculo() {
-		return new Sedan();
-	}
-
-
 }

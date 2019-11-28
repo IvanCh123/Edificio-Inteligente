@@ -1,15 +1,12 @@
 
-public class Motocicleta implements Vehiculo {
+public class Motocicleta extends Vehiculo {
 	
-	@Override
+	protected Vehiculo crearVehiculo() {
+		return new Motocicleta();
+	}
+	
+	
 	public String getTamano() {
 		return "Pequeño";
 	}
-
-	@Override
-	public Vehiculo crearVehiculo() {
-		return new Motocicleta();
-	}
-
-
 }

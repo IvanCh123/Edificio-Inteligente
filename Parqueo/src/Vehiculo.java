@@ -1,7 +1,7 @@
 
-public interface Vehiculo {
+public abstract class Vehiculo {
 
-	String getTamano();
-	Vehiculo crearVehiculo();
+	abstract String getTamano();
 	
+	protected abstract Vehiculo crearVehiculo();
 }
