@@ -48,12 +48,16 @@ class DispatcherTest {
 
 		Dispatcher dispatcher = new Dispatcher.Builder()
 								.addElevador(elevador)
+								.addElevador(elevador2)
 								.setNumeroDePisos(10)
 								.build();
 											
 								
-		System.out.println("Pedir "+dispatcher.pedirElevador(3));			
-		assertEquals(dispatcher.pedirElevador(3),1);	
+		
+		System.out.println("Asensores "+dispatcher.getElevadores());			
+		System.out.println("Pedir "+dispatcher.pedirElevador(3));	
+		
+		assertEquals(dispatcher.pedirElevador(6),2);	
 		
 		System.out.println("*** Stepping simulation ***");
         while(dispatcher.getPedidos() > 0){

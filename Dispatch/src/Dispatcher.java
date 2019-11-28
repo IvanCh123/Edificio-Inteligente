@@ -74,6 +74,11 @@ public class Dispatcher {
 
 	private int calcularTiempoLlegada(Elevator elevador, int destino)
 	{
+		if(!elevador.pisosDebajo.contains(destino) )
+			return -1;
+		else if(!elevador.pisosSobre.contains(destino) )
+			return -1;
+			
 		int cantidadPisosRecorrer = Math.abs( elevador.pisoActual - destino );
 		int cantidadParadas = 0;
 
@@ -103,8 +108,10 @@ public class Dispatcher {
 			if( estoyQuedito || voySubida || voyBajada )
 			{
 				int tiempoTemporal = calcularTiempoLlegada(temp,destino);
+				System.out.println("\nIterando "+temp.getID());
 				if( (tiempoTemporal < tiempoMinimo) || (tiempoMinimo == -1) )
 				{
+					
 					tiempoMinimo = tiempoTemporal;
 					idEscogido = temp.getID();
 				}
