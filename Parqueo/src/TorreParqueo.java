@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class TorreParqueo {
 	int pequeno;
@@ -28,21 +28,22 @@ public class TorreParqueo {
 	public String parquear(Vehiculo vehiculo) {
 		String ficha = "";
 		String tamano = vehiculo.getTamano();
-		System.out.println("Iniciando proceso de parqueo para vehículo: " + tamano + "\n");
-		for (int i = 0; i < this.getCantidadPisos(); i++) {
+		boolean parqueado = false;
+		System.out.println("Iniciando proceso de parqueo para vehículo: " + tamano);
+		for (int i = 0; i < this.getCantidadPisos() && !parqueado; i++) {
+			System.out.println("Iniciando búsqueda de espacio en el piso " + i);
 			for (int j = 0; j < this.getCantidadEspaciosPiso(); j++) {
 				if (this.espaciosParqueo[i][j] == null) {
 					this.espaciosParqueo[i][j] = vehiculo;
 					ficha = i+"-"+j;
+					System.out.println("Espacio libre en el lugar " + j);
+					parqueado = true;
+					break;
 				}
+				System.out.println("Espacio ocupado en el lugar " + j);
 			}
 		}		
-		// - Hacer matriz de pisos con lugares de parqueos para armar la ficha
-		// - Búsqueda recursiva de espacio más cercano al acceso
-		// - Clase Acceso que tenga espacio más cercano disponible
-		// - Patrón Observer entre los accesos para notificar cuando se utiliza un acceso
-		// para que si el que se usa es el más cercano del otro entonces este tiene que buscar uno nuevo
-		System.out.println("Su vehiculo ha sido parqueado. Su ficha es: "+ficha);
+		System.out.println("Su vehiculo ha sido parqueado. Su ficha es: " + ficha + "\n");
 		return ficha;
 	}
 	
