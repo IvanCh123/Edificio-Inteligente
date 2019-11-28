@@ -72,27 +72,34 @@ public class Dispatcher {
         }
     }
 
-	private int calcularTiempoLlegada(Elevator elevador, int destino)
+	private int calcularTiempoLlegada(Elevator elevador, Integer destino) 
 	{
-		if(!elevador.pisosDebajo.contains(destino) )
-			return -1;
-		else if(!elevador.pisosSobre.contains(destino) )
-			return -1;
-			
-		int cantidadPisosRecorrer = Math.abs( elevador.pisoActual - destino );
-		int cantidadParadas = 0;
+		int espera; 
+		if( !elevador.pisosDebajo.contains(destino) && !(elevador.pisosSobre.contains(destino)))
+		{
+			//System.out.println("no tiene este piso "+ destino +" en los pisos de debajo ni de arriba");
+			espera =  -1;
+		}
+		else 
+		{
+			//System.out.println("Calcular tiempo");
+			int cantidadPisosRecorrer = Math.abs( elevador.pisoActual - destino );
+			int cantidadParadas = 0;
 
-		if( elevador.pisoActual < destino)
-			cantidadParadas = elevador.pisosSobre.size();
-		else if( elevador.pisoActual > destino)
-			cantidadParadas = elevador.pisosDebajo.size();
-		else
-			return 0;
-		int espera = (cantidadPisosRecorrer * this.delayEntre) + (cantidadParadas * this.delayParada);
+			if( elevador.pisoActual < destino)
+				cantidadParadas = elevador.pisosSobre.size();
+			else if( elevador.pisoActual > destino)
+				cantidadParadas = elevador.pisosDebajo.size();
+			else
+				return 0;
+			espera = (cantidadPisosRecorrer * this.delayEntre) + (cantidadParadas * this.delayParada);
+		
+		}
 		return espera;
+		
 	}		
 
-	public int pedirElevador(int destino) {
+	public int pedirElevador(Integer destino) {
 		
 		int idEscogido = -1;
 		int tiempoMinimo = -1;
@@ -108,12 +115,14 @@ public class Dispatcher {
 			if( estoyQuedito || voySubida || voyBajada )
 			{
 				int tiempoTemporal = calcularTiempoLlegada(temp,destino);
-				System.out.println("\nIterando "+temp.getID());
-				if( (tiempoTemporal < tiempoMinimo) || (tiempoMinimo == -1) )
-				{
-					
-					tiempoMinimo = tiempoTemporal;
-					idEscogido = temp.getID();
+				
+				//System.out.println("tiempo temporal = " + tiempoTemporal);
+				if(tiempoTemporal != -1) {
+					if( (tiempoTemporal < tiempoMinimo) || (tiempoMinimo == -1) )
+					{		
+						tiempoMinimo = tiempoTemporal;
+						idEscogido = temp.getID();
+					}
 				}
 			}
 		}

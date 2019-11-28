@@ -22,6 +22,11 @@ public class Elevator{
 		});
 	}
 	
+	public String toString()
+	{
+		return "Id: " + this.idElevator;
+	}
+	
     public boolean actualizarEstado(ElevatorType estado) 
     {
     	if( getTotalPedidos() > 0 )
